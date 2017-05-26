@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<plugin xmlns="http://apache.org/cordova/ns/plugins/1.0"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    id="cordova-plugin-hkws"
+    version="1.0.0">
+    <name>HKWS</name>
+    <description>Cordova Plugin For HKWS</description>
+    <license>Apache 2.0</license>
+    <keywords>cordova,HKWS</keywords>
+    <repo>https://github.com/dPary/hkws.git</repo>
+    <issue>https://github.com/dPary/hkws/issues</issue>
+
+    <js-module src="www/hkws.js" name="HKWS">
+        <clobbers target="HKWS" />
+    </js-module>
+
+    <!-- android -->
+    <platform name="android">
+        <config-file target="res/xml/config.xml" parent="/*">
+            <feature name="HKWS" >
+                <param name="android-package" value="io.github.dpary.HKWS"/>
+            </feature>
+        </config-file>
+
+
+        <config-file target="AndroidManifest.xml" parent="/manifest/application">
+            <activity android:name="io.github.dpary.PlayActivity" android:screenOrientation="landscape" android:theme="@android:style/Theme.NoTitleBar.Fullscreen"/>
+        </config-file>
+
+        <source-file src="src/android/HKWS.java" target-dir="src/io/github/dpary" />
+        <source-file src="src/android/FakeR.java" target-dir="src/io/github/dpary" />
+        <source-file src="src/android/PlayActivity.java" target-dir="src/io/github/dpary"/>
+		
+		<source-file src="src/android/HCNetSDK.jar" target-dir="libs"/> 
+        <source-file src="src/android/PlayerSDK.jar" target-dir="libs"/>
+		
+        <source-file src="src/android/armeabi/libhcnetsdk.so" target-dir="libs/armeabi"/>
+        <source-file src="src/android/armeabi/libHCCore.so" target-dir="libs/armeabi"/>        
+        <source-file src="src/android/armeabi/libHCCoreDevCfg.so" target-dir="libs/armeabi"/>
+        <source-file src="src/android/armeabi/libHCPreview.so" target-dir="libs/armeabi"/>
+        <source-file src="src/android/armeabi/libHCDisplay.so" target-dir="libs/armeabi"/>
+        <source-file src="src/android/armeabi/libPlayCtrl.so" target-dir="libs/armeabi"/>
+        <source-file src="src/android/armeabi/libgnustl_shared.so" target-dir="libs/armeabi"/>
+
+        <source-file src="src/android/res/layout/activity_main.xml" target-dir="res/layout"/>
+        
+    </platform>
+
+    <!-- ios -->
+    <platform name="ios">
+        <config-file target="config.xml" parent="/*">
+            <feature name="HKWS">
+                <param name="ios-package" value="HKWS"/>
+            </feature>
+        </config-file>
+
+        <header-file src="src/ios/HKWS.h" />
+        <source-file src="src/ios/HKWS.mm" />
+        <header-file src="src/ios/hcnetsdk.h" />
+        <header-file src="src/ios/IOSPlayM4.h" />
+        <header-file src="src/ios/DeviceInfo.h" />
+        <source-file src="src/ios/DeviceInfo.m" />
+        <header-file src="src/ios/Preview.h" />
+        <source-file src="src/ios/Preview.mm" />
+        <header-file src="src/ios/PlayerDemoViewController.h" />
+        <source-file src="src/ios/PlayerDemoViewController.mm" />
+
+		<framework src="libstdc++.6.0.9.tbd" weak="true" />
+        <framework src="libiconv.2.4.0.tbd" weak="true" />
+        <framework src="GLKit.framework" weak="true" />
+        <framework src="UIKit.framework" weak="true" />
+        <source-file src="src/ios/libs/libHCCore.a" framework="true" />
+        <source-file src="src/ios/libs/libHCNetSDK.a" framework="true" />
+        
+        <source-file src="src/ios/libs/libplayctrl.a" framework="true" />
+        <source-file src="src/ios/libs/libopensslwrap.a" framework="true" />
+        <source-file src="src/ios/libs/libSystemTransform.a" framework="true" />
+       
+    </platform>
+
+</plugin>

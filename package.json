@@ -1,0 +1,27 @@
+{
+  "name": "cordova-plugin-hkws",
+  "version": "1.0.0",
+  "description": "Cordova Plugin For HKWS",
+  "cordova": {
+    "id": "cordova-plugin-hkws",
+    "platforms": [
+      "android",
+      "ios"
+    ]
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/dPary/hkws.git"
+  },
+  "keywords": [
+    "cordova",
+    "hkws"
+  ],
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    }
+  ],
+  "author": "dPary",
+}
